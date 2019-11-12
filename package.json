@@ -12,8 +12,12 @@
     "appId": "com.my-website.my-app",
     "productName": "MyApp",
     "copyright": "Copyright © 2019 ${author}",
+    "afterSign": "./afterSignHook.js",
     "mac": {
-      "category": "public.app-category.utilities"
+      "category": "public.app-category.utilities",
+      "hardenedRuntime": true,
+      "entitlements": "./entitlements.mac.inherit.plist",
+      "entitlementsInherit": "./entitlements.mac.inherit.plist"
     },
     "files": [
       "build/**/*",
@@ -36,10 +40,10 @@
     "build": "rescripts build",
     "test": "rescripts test",
     "eject": "react-scripts eject",
-    "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
-    "postinstall": "electron-builder install-app-deps",
-    "preelectron-pack": "yarn build",
-    "electron-pack": "build -mw"
+    "dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
+    "package-mac": "yarn build && electron-builder -m",
+    "package-win": "yarn build && electron-builder -w",
+    "postinstall": "electron-builder install-app-deps"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -55,7 +59,8 @@
     "@rescripts/rescript-env": "^0.0.5",
     "concurrently": "^4.1.0",
     "electron": "^4.0.6",
-    "electron-builder": "^20.38.5",
+    "electron-builder": "^22.1.0",
+    "electron-notarize": "^0.2.0",
     "typescript": "^3.3.3333",
     "wait-on": "^3.2.0"
   }
