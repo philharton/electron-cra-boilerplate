@@ -1,7 +1,7 @@
 {
   "name": "my-app",
   "description": "Electron + Create React App + Electron Builder",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "private": true,
   "author": {
     "name": "Your Name",
@@ -59,7 +59,7 @@
     "@rescripts/rescript-env": "^0.0.5",
     "concurrently": "^4.1.0",
     "electron": "^4.0.6",
-    "electron-builder": "^22.1.0",
+    "electron-builder": "21.2.0",
     "electron-notarize": "^0.2.0",
     "typescript": "^3.3.3333",
     "wait-on": "^3.2.0"
